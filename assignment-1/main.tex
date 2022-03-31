@@ -1,21 +1,24 @@
-\documentclass{article}
+\documentclass[twocoloumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{gensymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{multicol}
 \graphicspath{{figures/}}
-\title{AI1110 - assignment 1}
+\title{AI1110 - Assignment 1}
 \author{Kushagra Gupta}
 
 \begin{document}
+\maketitle 
+\begin{multicols}{2}
+\section*{Problem Statement}
 
-\maketitle    
-\section*{Q10-c Problem Statement}
-\includegraphics[width=\textwidth]{Q.png}
-\includegraphics[width=\textwidth]{figure.png}
+\begin{center}
+\includegraphics[width=167.5pt]{Q.png}\\
+\includegraphics[width=167.5pt]{figure.png}
+\end{center}
 
-\pagebreak
 \section*{Solution}
 
 In $\Delta$PQR, 
@@ -25,13 +28,15 @@ $\angle$RPQ  $= 60\degree$ and QR$ = 50$m, using basic trigonometric equation in
 $$\tan(\theta)=\frac{perpendicular}{base}$$
 
 \noindent Hence, 
+
 \begin{align*}
 \hspace{60pt}&\tan(\angle RPQ) = \frac{QR}{PQ} \\
 &\Rightarrow PQ = \frac{QR}{\tan(\angle RPQ)} \\
 &\Rightarrow PQ = \frac{50}{\tan(60\degree)}\, m
-\hspace{30pt}[\because \angle RPQ = 60\degree \, \& \, QR = 50m] \\
-&\Rightarrow PQ = \frac{50}{\sqrt{3}}\, m \hspace{50pt}-(1)
+\hspace{5pt}[\because \angle RPQ = 60\degree \, \& \, QR = 50m] \\
+&\Rightarrow PQ = \frac{50}{\sqrt{3}}\, m \hspace{25pt}-(1)
 \end{align*}
+
 Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 
 \begin{align*}
@@ -46,12 +51,17 @@ Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 
 \vspace{2pt}
 \noindent This can be verified by plotting QR , $\angle RPQ$ and $\angle PQT$ and approximating 
+\noindent the length of PT.
+\end{multicols}
 
-\noindent the length of PT.\pagebreak
+\pagebreak
+
 \section*{Output}
 \noindent The Output of the program used to verify the answer is given below:
+
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{output.png}
 \caption{Plot of the figure and calculated length}
+
 \end{figure}
 \end{document}
