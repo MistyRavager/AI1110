@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{multicol}
+\usepackage{tabularx}
 \graphicspath{{figures/}}
 \title{AI1110 - Assignment 1}
 \author{Kushagra Gupta \\ \normalsize CS21BTECH1103 \\ \vspace*{20pt}\\ \vspace*{20pt} \Large ICSE 2018 Grade 10 \\ \large Q10-c}
@@ -21,44 +22,58 @@ tower PT from a point Q is $30\degree$. Find the height of tower PT, correct to 
 \begin{center}
 \includegraphics[width=167.5pt]{figure.png}
 \end{center}
-
 \section*{Solution}
 
-In $\Delta$PQR, 
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+\hline
+QR & $h$ & $50$ \\
+\hline
+Angle QPR & $\angle QPR$ & $60\degree$ \\
+\hline
+Angle PQT & $\angle PQT$ & $30\degree$ \\
+\hline
+Base PQ & $d$ & ??? \\
+\hline
+PT & $h2$ & ??? \\
+\hline
+\end{tabular}
 
-$\angle$RPQ  $= 60\degree$ and QR$ = 50$m, using basic trigonometric equation in a right-angled triangle, we know that,
+In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
 
-$$\tan(\theta)=\frac{perpendicular}{base}$$
+\begin{equation}
+    \tan(\theta)=\frac{perpendicular}{base}
+\end{equation}
 
 \noindent Hence, 
 
 \begin{align*}
-\hspace{30pt}&\tan(\angle RPQ) = \frac{QR}{PQ} \\
-&\Rightarrow PQ = \frac{QR}{\tan(\angle RPQ)} \\
-&\Rightarrow PQ = \frac{50}{\tan(60\degree)}\, m \\
-&[\because \angle RPQ = 60\degree \, \& \, QR = 50m] \\
-&\Rightarrow PQ = \frac{50}{\sqrt{3}}\, m \hspace{10pt}-(1)
+\hspace{30pt}&\tan(\angle QPR) = \frac{h}{d} \\
+&\Rightarrow d = \frac{h}{\tan(\angle QPR)} \\
+&\Rightarrow d = \frac{50}{\tan(60\degree)}\, m \\
+&[\because \angle QPR = 60\degree \, \& \, h = 50m] \\
+&\Rightarrow d = \frac{50}{\sqrt{3}}\, m \hspace{10pt}-(1)
 \end{align*}
 
 Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 
 \begin{align*}
-\therefore \tan&(\angle PQT) = \frac{PT}{PQ} \\
-&\Rightarrow PT = PQ \times \tan(\angle PQT)\\
-&\Rightarrow PT = PQ \times \tan(30 \degree)\\
-&\Rightarrow PT = \frac{50}{\sqrt{3}} \times \tan(30 \degree) \, m \\
+\therefore \tan&(\angle PQT) = \frac{h_2}{d} \\
+&\Rightarrow h_2 = d \times \tan(\angle PQT)\\
+&\Rightarrow h_2 = d \times \tan(30 \degree)\\
+&\Rightarrow h_2 = \frac{50}{\sqrt{3}} \times \tan(30 \degree) \, m \\
 &[using (1)]\\
-&\Rightarrow PT = \frac{50}{3}\, m
+&\Rightarrow h_2 = \frac{50}{3}\, m
 \end{align*}
 
-\noindent $\therefore$ PT  $ \approx 17 $ metres after rounding off.
+\noindent $\therefore h_2(PT)   \approx 17 $ metres after rounding off.
 
 \vspace{2pt}
 \noindent This can be verified by plotting QR , $\angle RPQ$ and $\angle PQT$ and approximating 
 \noindent the length of PT.
-\end{multicols}
 
-\pagebreak
+\end{multicols}
 
 \section*{Output}
 \noindent The Output of the program used to verify the answer is given below:
