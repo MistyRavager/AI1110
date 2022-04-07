@@ -1,29 +1,27 @@
-\documentclass[twocoloumn]{article}
+
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{gensymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{multicol}
-\usepackage{tabularx}
+
 \graphicspath{{figures/}}
 \title{AI1110 - Assignment 1}
-\author{Kushagra Gupta \\ \normalsize CS21BTECH1103 \\ \vspace*{20pt}\\ \vspace*{20pt} \Large ICSE 2018 Grade 10 \\ \large Q10-c}
+\author{Kushagra Gupta \\ \normalsize CS21BTECH11033 \\ \vspace*{20pt}\\ \vspace*{20pt} \Large ICSE 2018 Grade 10 \\ \large Q10-c}
 \date{}
 \begin{document}
 \maketitle 
-\begin{multicols}{2}
 \section*{Problem Statement}
 
-
-The angle of elevation from a point P of the top of a tower QR, 50m high is $60\degree$ and that of the
+\noindent The angle of elevation from a point P of the top of a tower QR, 50m high is $60\degree$ and that of the
 tower PT from a point Q is $30\degree$. Find the height of tower PT, correct to the nearest metre.
 
 \begin{center}
-\includegraphics[width=167.5pt]{figure.png}
+\includegraphics[width=252pt]{figure.png}
 \end{center}
 \section*{Solution}
-
+\vspace{3pt}
 \begin{tabular}{|c|c|c|}
 \hline
 \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
@@ -40,7 +38,7 @@ PT & $h2$ & ??? \\
 \hline
 \end{tabular}
 
-In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
+\noindent In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
 
 \begin{equation}
     \tan(\theta)=\frac{perpendicular}{base}
@@ -73,13 +71,14 @@ Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 \noindent This can be verified by plotting QR , $\angle RPQ$ and $\angle PQT$ and approximating 
 \noindent the length of PT.
 
-\end{multicols}
+
+\newpage
 
 \section*{Output}
 \noindent The Output of the program used to verify the answer is given below:
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{output.png}
+\includegraphics[width=252pt]{output.png}
 \caption{Plot of the figure and calculated length}
 
 \end{figure}
