@@ -1,58 +1,130 @@
-
+\let\negmedspace\undefined
+\let\negthickspace\undefined
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
-\usepackage[utf8]{inputenc}
-\usepackage{amssymb}
 \usepackage{gensymb}
-\usepackage{amsmath}
-\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{bm}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{mathtools}
+ \usepackage{tikz}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{listings}
+\usepackage{color}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{multirow}                                         %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+\usepackage{lscape}     
+\usepackage{multicol}
+% \usepackage{enumerate}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\bibliographystyle{IEEEtran}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+
 
 \graphicspath{{figures/}}
 \title{AI1110 - Assignment 1}
-\author{Kushagra Gupta \\ \normalsize CS21BTECH11033 \\ \vspace*{20pt}\\ \vspace*{20pt} \Large ICSE 2018 Grade 10 \\ \large Q10-c}
-\date{}
-\begin{document}
-\maketitle 
-\section*{Problem Statement}
 
-\noindent The angle of elevation from a point P of the top of a tower QR, 50m high is $60\degree$ and that of the
+\author{Kushagra Gupta \\ \normalsize CS21BTECH11033  \\ \Large ICSE 2018 Grade 10}
+\date{}
+\maketitle
+\begin{flushleft}
+\textbf{Q10-c:}
+The angle of elevation from a point P of the top of a tower QR, 50m high is $60\degree$ and that of the
 tower PT from a point Q is $30\degree$. Find the height of tower PT, correct to the nearest metre.
 
 \begin{center}
-\includegraphics[width=252pt]{figure.png}
+\includegraphics[width=150pt]{figure.png}
 \end{center}
-\section*{Solution}
-\vspace{3pt}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
-\hline
-QR & $h$ & $50$ \\
-\hline
-Angle QPR & $\angle QPR$ & $60\degree$ \\
-\hline
-Angle PQT & $\angle PQT$ & $30\degree$ \\
-\hline
-Base PQ & $d$ & ??? \\
-\hline
-PT & $h2$ & ??? \\
-\hline
-\end{tabular}
-
-\noindent In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
-
-\begin{equation}
-    \tan(\theta)=\frac{perpendicular}{base}
-\end{equation}
-
-\noindent Hence, 
-
+\begin{table}[ht!]
+    \input{tables/table-1}
+    \caption{}
+	\label{table:table1}
+\end{table}
+\solution In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
 \begin{align*}
-\hspace{30pt}&\tan(\angle QPR) = \frac{h}{d} \\
+&\tan(\theta)=\frac{\text{perpendicular}}{\text{base}}\\
+\hspace{30pt}&\Rightarrow\tan(\angle QPR) = \frac{h}{d} \\
 &\Rightarrow d = \frac{h}{\tan(\angle QPR)} \\
 &\Rightarrow d = \frac{50}{\tan(60\degree)}\, m \\
 &[\because \angle QPR = 60\degree \, \& \, h = 50m] \\
-&\Rightarrow d = \frac{50}{\sqrt{3}}\, m \hspace{10pt}-(1)
-\end{align*}
+&\Rightarrow d = \frac{50}{\sqrt{3}}\, m \hspace{10pt}-(1) \\
+\end{align*} 
 
 Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 
@@ -65,21 +137,19 @@ Now in $\Delta PQT$, $\angle PQT = 30\degree$.
 &\Rightarrow h_2 = \frac{50}{3}\, m
 \end{align*}
 
-\noindent $\therefore h_2(PT)   \approx 17 $ metres after rounding off.
-
-\vspace{2pt}
-\noindent This can be verified by plotting QR , $\angle RPQ$ and $\angle PQT$ and approximating 
-\noindent the length of PT.
+$\therefore h_2(PT)   \approx \fbox{17} $ metres after rounding off.
 
 
-\newpage
+This can be verified by plotting QR , $\angle RPQ$ and $\angle PQT$ and approximating 
+the length of PT.
 
-\section*{Output}
-\noindent The Output of the program used to verify the answer is given below:
+\noindent\textbf{Output:}
+The Output of the program used to verify the answer is given below:
 
 \begin{figure}[h]
 \includegraphics[width=252pt]{output.png}
 \caption{Plot of the figure and calculated length}
 
 \end{figure}
+\end{flushleft}
 \end{document}
