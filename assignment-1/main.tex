@@ -1,6 +1,6 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[journal,12pt,twocolumn,hidelinks]{IEEEtran}
 \usepackage{gensymb}
 \usepackage{amssymb}
 \usepackage[cmex10]{amsmath}
@@ -52,14 +52,20 @@ columns=fullflexible
 The angle of elevation from a point P of the top of a tower QR, 50m high is $60\degree$ and that of the
 tower PT from a point Q is $30\degree$. Find the height of tower PT, correct to the nearest metre.
 
-\begin{center}
-\includegraphics[width=150pt]{figure.png}
-\end{center}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=150pt]{figures/figure.png}
+\label{fig:fig-1}
+\end{figure}
+
+The various parameters involved in this question are listed in Table \eqref{table:table1}\\
+
 \begin{table}[ht!]
     \input{tables/table-1}
     \caption{}
 	\label{table:table1}
 \end{table}
+
 \solution In $\Delta$PQR, using basic trigonometric equation in a right-angled triangle, we know that,
 \begin{align}
 &\tan(\theta)=\frac{\text{perpendicular}}{\text{base}}\\
@@ -76,23 +82,23 @@ Now in $\Delta PQT$, $\beta = 30\degree$.
 \therefore \tan&(\beta) = \frac{h_2}{d} \\
 &\Rightarrow h_2 = d \times \tan(\beta)\\
 &\Rightarrow h_2 = d \times \tan(30 \degree)\\
-&\Rightarrow h_2 = \frac{50}{\sqrt{3}} \times \tan(30 \degree) \, m \\
-&[using (6)]\\
+&\Rightarrow h_2 = \frac{50}{\sqrt{3}} \times \tan(30 \degree) \, m \, [using (6)]\\
 &\Rightarrow h_2 = \frac{50}{3}\, m
 \end{align}
 
 $\therefore h_2(PT)   \approx \fbox{17} $ metres after rounding off.
 
-
 This can be verified by plotting $h$ , $\alpha$ and $\beta$ and approximating 
 the length of $h_2$.
 
 \noindent\textbf{Output:}
-The Output of the program used to verify the answer is given below:
+The Output of the program used to verify the answer is given in fig. \ref{fig:fig-2}:
 
-\begin{figure}[h]
-\includegraphics[width=252pt]{output.png}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{figures/output.png}
 \caption{Plot of the figure and calculated length}
+\label{fig:fig-2}
 \end{figure}
 
 \end{flushleft}
