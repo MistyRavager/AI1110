@@ -18,8 +18,7 @@ class_length = 5
 min_cls_interval = cls_interval(min_h)
 max_cls_interval = cls_interval(max_h)
 bin=[]
-for i in range(min_cls_interval,max_cls_interval+class_length*2,5):
-    bin.append(i)
+bin.append(i for i in range(min_cls_interval,max_cls_interval+class_length*2,5))
 
 class_intervals = [f"{bin[ind]}-{bin[ind+1]}" for ind,i in enumerate(bin[:len(bin)-1])]
 
