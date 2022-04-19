@@ -1,3 +1,4 @@
+from audioop import avg
 import numpy as np
 import pandas as pd
 
@@ -29,3 +30,19 @@ hist = np.histogram(raw_data,bins=bin)
 # writing to excel file
 write = pd.DataFrame({"Relative Humidity":class_intervals,"Frequency":hist[0]})
 write.to_excel('tables/frequency_distribution.xlsx',index=False)
+
+#------------------------------------
+#properties
+
+range = max_h - min_h #range
+sum_h = np.sum(raw_data) #total sum of heights
+print(sum_h)
+num = len(raw_data)*len(raw_data[0]) #total number of students
+avg_h = sum_h / num #average
+print(avg_h)
+max_i = np.amax(hist[0])
+for ind,i in enumerate(hist[0]):
+    if i==max_i:
+        print(class_intervals[ind]) #most frquent class
+
+
