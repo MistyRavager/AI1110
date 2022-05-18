@@ -1,0 +1,206 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+%packages:
+% \usepackage{tfrupee}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{gensymb}
+% \usepackage{txfonts}
+
+% \def\inputGnumericTable{}
+
+% \usepackage[latin1]{inputenc}                                 
+% \usepackage{color}                                            
+% \usepackage{array}                                            
+% \usepackage{longtable}                                        
+% \usepackage{calc}                                             
+% \usepackage{multirow}                                         
+% \usepackage{hhline}                                           
+% \usepackage{ifthen}
+% \usepackage{caption} 
+% \captionsetup[table]{skip=3pt}  
+% \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+% \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+% %\renewcommand{\thefigure}{\arabic{table}}
+% \renewcommand{\thetable}{\arabic{table}}      
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}   
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+% Title page details: 
+\title{Assignment 7} 
+\author{Kushagra Gupta}
+\date{\today}
+% \logo{\large \LaTeX{}}
+
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+
+\section{Problem Statement}
+\begin{frame}{Problem Statement}
+    \begin{block}{13.4 Q7 [NCERT 12] } A coin is biased so that the head is 3 times as likely to occur as tail. If the coin is tossed twice, find the probability distribution of number of tails.
+    \end{block}
+\end{frame}
+
+
+
+\section{Definitions}
+\begin{frame}{Random Variable Definition}
+In this experiment, there are two consecutive Bernoulli trials. Therefore, it is appropriate to define a Binomial Random Variable $X$ as under:
+
+
+\begin{table}[ht!]
+    \centering
+    \input{tables/table1}
+    \caption{Random Variable $X$}
+	\label{table:table1}
+\end{table}
+
+  
+\end{frame}
+
+\begin{frame}{Random Variable Definition}
+In each Bernoulli trial, let Binomial Random Variable $Y$ be as under:
+
+\begin{table}[ht!]
+    \centering
+    \input{tables/table2}
+    \caption{Random Variable $Y$}
+	\label{table:table2}
+\end{table}
+\end{frame}
+
+\begin{frame}{Probability Mass Function}
+We know that,
+\begin{block}{}
+       \begin{align}
+            &\pr{Y=0} = 3\times \pr{Y=1}\\
+            &\pr{Y=0} + \pr{Y=1} = 1\\
+            \therefore &\pr{Y=1} = \frac{1}{4} \text{\,and} \pr{Y=0} = \frac{3}{4}
+       \end{align}
+\end{block}
+\end{frame}
+\begin{frame}{Probability Mass Function}
+    
+
+The probability of success is $p=\frac{1}{4}$.
+
+Therefore, the probability that $X$ maps to $i$ is given by:
+\begin{block}{}
+       \begin{align}
+                \label{eq1}
+           \pr{X=i} = \binom{2}{i} (1-p)^{2-i} p^i ,~ 0 \le i \le 2 
+       \end{align}
+\end{block}
+
+The values for $i$ can be substituted in the above formula, and the graph of the PMF can be obtained.
+\end{frame}
+
+
+\begin{frame}{Cumulative Distribution Function}
+The cumulative probability $ \pr{X \leq i}$ can be defined as under:
+
+\begin{block}{}
+\begin{align}
+          \label{eq2}
+       \pr{X \leq i} = \sum_{k=0}^{i} \binom{2}{k} (1-p)^{2-k} p^k ,~ 0 \le i \le 2
+\end{align}
+\end{block}
+
+The values of $i$ can be substituted in the above equation, and the obtained values can be used to plot the CDF graph.
+
+\end{frame}
+
+
+\section{Solution}
+\begin{frame}{Solution}
+We have to find the probability distribution of the number of tails in the trials. So, plugging $i=0,1,2$ in equation \eqref{eq1}
+\begin{align}
+    \pr{X=i} = 
+    \begin{cases}
+        &\frac{9}{16}, i = 0 \\
+        &\frac{3}{8}, i = 1\\
+        &\frac{1}{16}, i = 2
+    \end{cases}
+\end{align}
+\end{frame}
+
+\section{Graphs}
+\begin{frame}{PMF Graph}
+The PMF graph is:
+    \begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth,height=5.5cm,keepaspectratio]{figures/figure1.png}
+		\caption{Probability Mass Function}
+		\label{fig1}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{CDF Graph}
+The CDF graph is:
+    \begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth,height=5.5cm,keepaspectratio]{figures/figure2.png}
+		\caption{Cumulative Distribution Function}
+		\label{fig2}
+	
+\end{figure}
+\end{frame}
+
+
+\end{document}
+
