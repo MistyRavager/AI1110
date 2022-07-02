@@ -32,26 +32,28 @@ for i in range(0,maxrange-1):
 	test = (err[i+1]-err[i])/(x[i+1]-x[i])
 	pdf.append(test) #storing the pdf values in a list
 
+def tri(i):
+	if i > 0 and i < 1:
+		return i
+	elif i > 1 and i < 2:
+		return 2 - i
+	else:
+		return 0
+
 def gauss_pdf(x):
 	return 1/mp.sqrt(2*np.pi)*np.exp(-x**2/2.0)
 	
 vec_gauss_pdf = scipy.vectorize(gauss_pdf)
+vect2 = np.vectorize(tri, otypes=[np.float])
 
 plt.plot(x[0:(maxrange-1)].T,pdf,"bo")
 # plt.plot(x,vec_gauss_pdf(x))#plotting the PDF
+a = np.linspace(-4,4,100)
+plt.plot(a.T,vect2(a))
 plt.grid() #creating the grid
 plt.xlabel('$x$')
 plt.ylabel('$p_T(x)$')
-theo = []
-a = np.linspace(-4,4,simlen)
-for i in a.tolist():
-	if i > 0 and i < 1:
-		theo.append(i)
-	elif i > 1 and i < 2:
-		theo.append(2 - i)
-	else:
-		theo.append(0)
-plt.plot(a.T,theo)
+
 plt.legend(["Numerical","Theory"])
 
 #if using termux

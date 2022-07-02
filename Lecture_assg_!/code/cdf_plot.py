@@ -12,30 +12,30 @@ x = np.linspace(-4,4,30)#points on the x axis
 simlen = int(1e6) #number of samples
 err = [] #declaring probability list
 #randvar = np.random.normal(0,1,simlen)
-randvar = np.loadtxt('../dat_files/gau.dat',dtype='double')
+randvar = np.loadtxt('../dat_files/tri.dat',dtype='double')
 def Q_func(x):
 	return mp.erfc(x/sqrt(2))/2
 
 def gau(x):
 	return(1-Q_func(x))
-def tri():
-	global randvar
-	randvar = np.loadtxt('../dat_files/tri.dat',dtype='double')
-	theo = []
-	a = np.linspace(-4,4,simlen)
-	for i in a.tolist():
-		if(i < 0):
-			theo.append(0)
-		elif(i > 0 and i < 1):
-			theo.append((i**2)/2)
-		elif(i > 1 and i < 2):
-			theo.append(2*i - (i**2)/2 - 1)
-		else:
-			theo.append(1)
+def tri(i):
+	# global randvar
+	# randvar = np.loadtxt('../dat_files/tri.dat',dtype='double')
+	# theo = []
+	# a = np.linspace(-4,4,simlen)
 	
-	plt.plot(a.T,theo)
-	plt.xlabel('$x$')
-	plt.ylabel('$F_T(x)$')
+	if(i < 0):
+		return 0
+	elif(i > 0 and i < 1):
+		return (i**2)/2
+	elif(i > 1 and i < 2):
+		return 2*i - (i**2)/2 - 1
+	else:
+		return 1
+	
+	# plt.plot(a.T,theo)
+	# plt.xlabel('$x$')
+	# plt.ylabel('$F_T(x)$')
 
 
 #--------------theoritical for U ------------------
@@ -77,11 +77,11 @@ for i in range(0,30):
 	err_ind = np.nonzero(randvar < x[i]) #checking probability condition
 	err_n = np.size(err_ind) #computing the probability
 	err.append(err_n/simlen) #storing the probability values in a list
-vect = np.vectorize(gau, otypes=[np.float])
-
-
-plt.plot(a, vect(a))
-plt.plot(x.T,err,"bo")#plotting the CDF
+# vect = np.vectorize(gau, otypes=[np.float])
+vect2 = np.vectorize(tri, otypes=[np.float])
+plt.plot(a,vect2(a))
+# plt.plot(a, vect(a))
+# plt.plot(x.T,err,"bo")#plotting the CDF
 plt.grid()	
 plt.legend(["Theory","Numerical"])
 # plt.legend(["Theory","Numerical"])
