@@ -19,7 +19,8 @@ pdf = [] #declaring pdf list
 h = 2*maxlim/(maxrange-1);
 #randvar = np.random.normal(0,1,simlen)
 #randvar = np.loadtxt('uni.dat',dtype='double')
-randvar = np.loadtxt('../dat_files/gau.dat',dtype='double')
+# randvar = np.loadtxt('../dat_files/gau.dat',dtype='double')
+randvar = np.loadtxt('../dat_files/tri.dat',dtype='double')
 
 for i in range(0,maxrange):
 	err_ind = np.nonzero(randvar < x[i]) #checking probability condition
@@ -36,11 +37,21 @@ def gauss_pdf(x):
 	
 vec_gauss_pdf = scipy.vectorize(gauss_pdf)
 
-plt.plot(x[0:(maxrange-1)].T,pdf,'o')
-plt.plot(x,vec_gauss_pdf(x))#plotting the CDF
+plt.plot(x[0:(maxrange-1)].T,pdf,"bo")
+# plt.plot(x,vec_gauss_pdf(x))#plotting the PDF
 plt.grid() #creating the grid
-plt.xlabel('$x_i$')
-plt.ylabel('$p_X(x_i)$')
+plt.xlabel('$x$')
+plt.ylabel('$p_T(x)$')
+theo = []
+a = np.linspace(-4,4,simlen)
+for i in a.tolist():
+	if i > 0 and i < 1:
+		theo.append(i)
+	elif i > 1 and i < 2:
+		theo.append(2 - i)
+	else:
+		theo.append(0)
+plt.plot(a.T,theo)
 plt.legend(["Numerical","Theory"])
 
 #if using termux
